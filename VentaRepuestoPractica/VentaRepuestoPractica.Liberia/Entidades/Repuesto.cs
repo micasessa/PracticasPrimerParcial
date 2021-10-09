@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VentaRepuestoPractica.Liberia
+namespace VentaRepuestoPractica.Libreria.Entidades
 {
     public class Repuesto
     {

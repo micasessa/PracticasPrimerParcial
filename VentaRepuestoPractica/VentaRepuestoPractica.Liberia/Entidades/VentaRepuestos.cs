@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VentaRepuestoPractica.Liberia
+namespace VentaRepuestoPractica.Libreria.Entidades
 {
-    public class Ventarepuestos
+    public class VentaRepuestos
     {
         private List<Repuesto> _listaProductos;
         private string _nombreComercio;
@@ -36,7 +36,22 @@ namespace VentaRepuestoPractica.Liberia
 
         public List<Repuesto> TraerPorCategoria (int Codigo)
         {
-            Console.WriteLine("Falta desarrollo");
+            List<Repuesto> repuestos = new List<Repuesto>();
+            foreach (Repuesto item in _listaProductos)
+            {
+                if (item.Categoria.Codigo == Codigo)
+                {
+                    repuestos.Add(item);
+                }
+            }
+            return repuestos;
+
+        }
+
+        //Desarrollarlo para obtener el cod max y que el usuario pueda agregar un nuevo repuesto.
+        public int ObtenerCodigoMaximo()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentaRepuestoPractica.Consola", "VentaRepuestoPractica.Consola\VentaRepuestoPractica.Consola.csproj", "{DFFC87DD-CE6F-4AF3-8561-BD0D80A03C6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentaRepuestoPractica.Liberia", "VentaRepuestoPractica.Liberia\VentaRepuestoPractica.Liberia.csproj", "{29EC141F-3F45-4AE6-BD3A-2D1459DEAA2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentaRepuestoPractica.Libreria", "VentaRepuestoPractica.Liberia\VentaRepuestoPractica.Libreria.csproj", "{29EC141F-3F45-4AE6-BD3A-2D1459DEAA2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
