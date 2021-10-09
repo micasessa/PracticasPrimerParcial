@@ -114,9 +114,18 @@ namespace VentaRepuestoPractica.Consola
             }
             //pedir al usuario que ingrese el codigo de prd que quiere eliminar
             //valido que el codigo este bien escrito y que exista
-            //si no tiene stock: se elimina
-            //Si tiene stock: no se borra. se manda mensaje
-            
+            int codigo = Validador.pedirInt("Ingrese el codigo a eliminar");
+            _tiendaRepuestos.BuscarPorCodigo(codigo).ToString();
+            //Checkeo si tiene o no stock
+            if(_tiendaRepuestos.QuitarRepuesto(codigo)) 
+            {
+                //si no tiene stock: se elimina
+                Repuesto eliminado = _tiendaRepuestos.BuscarPorCodigo(codigo);
+                Console.WriteLine("El repuesto fue eliminado");
+            }else //Si tiene stock: no se borra. se manda mensaje
+            {
+                Console.WriteLine("Todavia tiene stock. no puede ser eliminado");
+            }
         }
 
         private static void ModificaPrecio()

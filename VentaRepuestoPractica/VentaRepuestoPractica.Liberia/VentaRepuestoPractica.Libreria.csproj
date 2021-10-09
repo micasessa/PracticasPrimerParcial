@@ -46,6 +46,7 @@
     <Compile Include="Entidades\VentaRepuestos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\CategoriaHelper.cs" />
+    <Compile Include="Utility\RepuestoHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,8 +36,7 @@ namespace VentaRepuestoPractica.Libreria.Entidades
             if (repuesto is null)
             {
                 flag = false;
-            }
-            else //Recorro si hay info en el repuesto ingresado por usuario:
+            } else //Recorro si hay info en el repuesto ingresado por usuario:
             {
                 foreach (var item in _listaProductos)
                 {   //si el item ya existente en listaprd coincide con repuesto ingresado por usuario
@@ -51,14 +50,34 @@ namespace VentaRepuestoPractica.Libreria.Entidades
                         _listaProductos.Add(repuesto);
                     }
                 }
-
-            }
-            return flag;
-            
+            } return flag;            
         }
 
-        public void QuitarRepuesto (int Codigo)
-        { }
+        public bool QuitarRepuesto (int Codigo)
+        {
+            bool flag = true; //siempre va a ser true, caso contrario: se cambia flag a false
+            if (_listaProductos.Count == 0) //Si no hay productos, no se puede borrar nada
+            {
+                flag = false; //Devuelvo falso!
+            } else //si hay +1 prd:
+            {   //recorro la lista
+                foreach(var repues in _listaProductos)
+                {
+                    if (repues.Codigo == Codigo) //si el codigo ingresado coincide con uno existente
+                    {   //checkeo el stock
+                        if(repues.Stock >0)
+                        {
+                            flag = false; //No borro el repuesto
+                        } else
+                        {
+                            _listaProductos.Remove(repues); //borro el repuesto
+                            break;
+                        }
+                    }
+                }
+            }
+            return flag;
+        }
 
         public void ModificarPrecio(int Codigo, double Precio)
         { }
@@ -97,6 +116,21 @@ namespace VentaRepuestoPractica.Libreria.Entidades
                 resultado = _listaProductos.Count() + 1; //valor que devuelve si hay+1 (total +1)
             }
             return resultado;
+        }
+
+        public Repuesto BuscarPorCodigo (int cod)
+        {
+            //hago un foreach para buscar el codigo del repuesto ingresado por usuario
+            Repuesto rr = new Repuesto();
+            foreach (Repuesto r in _listaProductos)
+            {
+                if (r.Codigo == cod)
+                {
+                    rr = r;
+                }
+            }
+            return rr;
+
         }
     }
 }

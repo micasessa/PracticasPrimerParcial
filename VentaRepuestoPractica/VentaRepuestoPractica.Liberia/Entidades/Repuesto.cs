@@ -21,7 +21,8 @@ namespace VentaRepuestoPractica.Libreria.Entidades
         public int Stock { get => _stock; }
         public Categoria Categoria { get => _categoria; }
 
-        //Desarrollo constructor 
+        //Desarrollo constructor.  1 vacio y otro con vars
+        public Repuesto () { }
         public Repuesto (int codigo, string nombre, double precio, int stock, Categoria cat)
         {
             _codigo = codigo;
