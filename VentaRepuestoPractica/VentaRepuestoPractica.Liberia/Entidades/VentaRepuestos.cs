@@ -15,7 +15,7 @@ namespace VentaRepuestoPractica.Libreria.Entidades
         //Desarrollo GETTER
         public string NombreComercio { get => _nombreComercio; }
         public string Direccion { get => _direccion; }
-        public List<Repuesto> Lista { get => _listaProductos; }
+        public List<Repuesto> Lista { get { return _listaProductos; } }
 
         //Desarrollo Constructor. 1 vacio y otro con vars
         public VentaRepuestos() { }
@@ -32,7 +32,7 @@ namespace VentaRepuestoPractica.Libreria.Entidades
         public bool AgregarRepuesto(Repuesto repuesto)
         {
             bool flag = true;
-            //Me dijo si el repuesto ingresado por usuario no esta vacio
+            //Me fijo si el repuesto ingresado por usuario no esta vacio
             if (repuesto is null)
             {
                 flag = false;
@@ -79,21 +79,56 @@ namespace VentaRepuestoPractica.Libreria.Entidades
             return flag;
         }
 
-        public void ModificarPrecio(int Codigo, double Precio)
-        { }
+        public bool ModificarPrecio(int cod, double precioN)
+        { //Empiezo con que es falso just in case
+            bool flag = false;
+            //Busco el codigo ingresado by usuario en mi lista de productos
+            foreach (Repuesto item in _listaProductos)
+            {
+                if (item.Codigo == cod) //si el codigo del repuesto= al codigo ingresado por usuario
+                {
+                    item.Precio = precioN; //hago update del precio y cambio el flag
+                    flag = true;
+                }
+            }
+            return flag;
+            
+        }
 
-        public void AgregarStock (int Codigo, int Stock)
-        { }
+        public bool AgregarStock (int cod, int stock)
+        { //similar a modificarprecio. empiezo con bool false, busco codigo ingresado por usuario
+            bool flag = false;
+            foreach (Repuesto r in _listaProductos)
+            {
+                if(r.Codigo == cod)
+                {
+                    r.Stock += stock;
+                    flag = true;
+                }
+            } return flag;        
+        }
 
-        public void QuitarStock (int Codigo, int Stock)
-        { }
+        public bool QuitarStock (int cod, int stock)
+        { //similar a modificarprecio. empiezo con bool false, busco codigo ingresado por usuario
+            bool flag = false;
+            foreach (Repuesto r in _listaProductos)
+            {
+                if (r.Codigo == cod)
+                {
+                    r.Stock -= stock;
+                    flag = true;
+                }
+            }
+            return flag;
 
-        public List<Repuesto> TraerPorCategoria (int Codigo)
+        }
+
+        public List<Repuesto> TraerPorCategoria (int c)
         {
             List<Repuesto> repuestos = new List<Repuesto>();
             foreach (Repuesto item in _listaProductos)
             {
-                if (item.Categoria.Codigo == Codigo)
+                if (item.Categoria.Codigo == c)
                 {
                     repuestos.Add(item);
                 }
@@ -132,5 +167,7 @@ namespace VentaRepuestoPractica.Libreria.Entidades
             return rr;
 
         }
+
+        
     }
 }

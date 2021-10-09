@@ -21,6 +21,10 @@ namespace VentaRepuestoPractica.Libreria.Entidades
             _codigo = codigo;
             _nombre = nombre;
         }
+        public Categoria()
+        {
+            
+        }
 
     }
 }

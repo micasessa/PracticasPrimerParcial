@@ -17,7 +17,8 @@ namespace VentaRepuestoPractica.Consola
         static Program()
         {
             _consolaActiva = true;
-            _tiendaRepuestos = new VentaRepuestos();            
+            _tiendaRepuestos = new VentaRepuestos();
+            CategoriaHelper.GetCategorias();
         }
         static void Main(string[] args)
         {
@@ -54,9 +55,7 @@ namespace VentaRepuestoPractica.Consola
                         break;
                 }
 
-            } while (_consolaActiva);
-            
-            
+            } while (_consolaActiva);           
         }
 
         private static void NuevoRepuesto()
@@ -104,10 +103,11 @@ namespace VentaRepuestoPractica.Consola
                 Console.WriteLine(k.Codigo + " " + k.Nombre);
             }
         }
+        
 
         private static void EliminarRepuesto()
         {
-            //mostrar los repuestos (recorro!!)
+            //mostrar los repuestos
             foreach (Repuesto r in _tiendaRepuestos.Lista)
             {
                 Console.WriteLine("La lista de repuestos disponible es: " + r.ToString());
@@ -115,7 +115,7 @@ namespace VentaRepuestoPractica.Consola
             //pedir al usuario que ingrese el codigo de prd que quiere eliminar
             //valido que el codigo este bien escrito y que exista
             int codigo = Validador.pedirInt("Ingrese el codigo a eliminar");
-            _tiendaRepuestos.BuscarPorCodigo(codigo).ToString();
+            Console.WriteLine ("Se va a eliminar el repuesto: "+ _tiendaRepuestos.BuscarPorCodigo(codigo).ToString());
             //Checkeo si tiene o no stock
             if(_tiendaRepuestos.QuitarRepuesto(codigo)) 
             {
@@ -130,22 +130,63 @@ namespace VentaRepuestoPractica.Consola
 
         private static void ModificaPrecio()
         {
-            throw new NotImplementedException();
-        }
+            //pido al usuario codigo prd + nuevoprecio y lo valido sintacticamente
+            int codigo = Validador.pedirInt("Ingrese el codigo del repuesto");
+            double nuevoprecio = Validador.pedirDouble("Ingrese el nuevo precio del repuesto");
 
-        private static void QuitarStock()
-        {
-            //Quitar stock de un repuesto
+            //valido que se pueda modificar el precio con un metodo en clase VentaRepuesto
+            //valido checkeando que exista el codigo ingresado por el usuario
+            if(_tiendaRepuestos.ModificarPrecio(codigo, nuevoprecio))
+            {
+                Console.WriteLine("Se modifico el precio del nuevo producto: "+ _tiendaRepuestos.BuscarPorCodigo(codigo).ToString());
+            } else
+            {
+                Console.WriteLine("No existe el repuesto del codigo ingresado");
+            }
         }
 
         private static void AgregarStock()
-        {
-            //Agregar stock de un repuesto
+        {   //similar a modificar precio, pero con cantidad
+            int codigo = Validador.pedirInt("Ingrese el codigo del repuesto");
+            int cantidad = Validador.pedirInt("Ingrese la cantidad del stock del repuesto");
+            //valido que se pueda agregar stock con un metodo en clase VentaRepuesto
+            //valido checkeando que exista el codigo ingresado por el usuario
+            if (_tiendaRepuestos.AgregarStock(codigo, cantidad))
+            {
+                Console.WriteLine("Se agregó el stock del producto: " + _tiendaRepuestos.BuscarPorCodigo(codigo).ToString());
+            }
+            else
+            {
+                Console.WriteLine("No existe el repuesto del codigo ingresado");
+            }
+        }
+        private static void QuitarStock()
+        { //Quitar stock de un repuesto
+            int codigo = Validador.pedirInt("Ingrese el codigo del repuesto");
+            int cantidad = Validador.pedirInt("Ingrese la cantidad del stock del repuesto que desea eliminar");
+            //valido que se pueda eliminar stock con un metodo en clase VentaRepuesto
+            //valido checkeando que exista el codigo ingresado por el usuario
+            if (_tiendaRepuestos.QuitarStock(codigo, cantidad))
+            {
+                Console.WriteLine("Se quitó el stock del producto: " + _tiendaRepuestos.BuscarPorCodigo(codigo).ToString());
+            }
+            else
+            {
+                Console.WriteLine("No existe el repuesto del codigo ingresado");
+            }
         }
 
         private static void ListarRepuesto()
-        {
-            //Listar repuestos por categorias
+        { //Listar repuestos por categorias
+            //pido que ingrese el codigo de la categ al usuario
+            int codCategoria = Validador.pedirInt("Ingrese el codigo de la categoria");
+            //creo una nueva lista que me traiga los repuestos xcateg que recibe el cod de categ ingresdo por usuario
+            List<Repuesto> repuestoPorCateg = _tiendaRepuestos.TraerPorCategoria(codCategoria);
+            //Hago un foreach que por cada repuesto encontrado en repuestoPorCateg, me traiga los datos del toString
+            foreach (Repuesto r in repuestoPorCateg)
+            {
+                Console.WriteLine(r.ToString());
+            }
         }
 
         static void DesplegarOpcionesMenu()
