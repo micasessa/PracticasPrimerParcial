@@ -86,7 +86,7 @@ namespace VentaRepuestoPractica.Consola
             Repuesto re = new Repuesto(codigo, nombre, precio, stock, c);
 
             //agrego el repuesto a mi ventaderepuesto disponible
-            if(_tiendaRepuestos.AgregarRepuesto(re)) //FALTA DESARROLLO AGREGAR REPUESTO
+            if(_tiendaRepuestos.AgregarRepuesto(re))
             {
                 Console.WriteLine("Se agregó el repuesto: " + re.ToString());
             }
@@ -107,7 +107,16 @@ namespace VentaRepuestoPractica.Consola
 
         private static void EliminarRepuesto()
         {
-            throw new NotImplementedException();
+            //mostrar los repuestos (recorro!!)
+            foreach (Repuesto r in _tiendaRepuestos.Lista)
+            {
+                Console.WriteLine("La lista de repuestos disponible es: " + r.ToString());
+            }
+            //pedir al usuario que ingrese el codigo de prd que quiere eliminar
+            //valido que el codigo este bien escrito y que exista
+            //si no tiene stock: se elimina
+            //Si tiene stock: no se borra. se manda mensaje
+            
         }
 
         private static void ModificaPrecio()

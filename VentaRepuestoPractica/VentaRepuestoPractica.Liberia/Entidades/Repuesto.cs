@@ -34,7 +34,9 @@ namespace VentaRepuestoPractica.Libreria.Entidades
         //Desarrollo metodo UML
         public string ToString()
         {
-            throw new NotImplementedException();
+            //MUESTRO LOS DATOS DE LOS REPUESTOS!
+            return "Codigo: " + Codigo + "\n Nombre: " + Nombre +
+                "\n Precio: " + Precio + "\n Stock: " + Stock + "\n Categoria: " + Categoria ;
         }
     }
 }
