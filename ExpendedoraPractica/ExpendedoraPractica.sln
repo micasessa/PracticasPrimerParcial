@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpendedoraPractica.Consola", "ExpendedoraPractica.Consola\ExpendedoraPractica.Consola.csproj", "{071322D2-1EC1-4325-975E-F60CEF73ED50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpendedoraPractica.Libreria", "ExpendedoraPractica.Libreria\ExpendedoraPractica.Libreria.csproj", "{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{071322D2-1EC1-4325-975E-F60CEF73ED50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071322D2-1EC1-4325-975E-F60CEF73ED50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{071322D2-1EC1-4325-975E-F60CEF73ED50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{071322D2-1EC1-4325-975E-F60CEF73ED50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D95BAFB5-99FC-4E6E-A729-16505589093D}
+	EndGlobalSection
+EndGlobal
