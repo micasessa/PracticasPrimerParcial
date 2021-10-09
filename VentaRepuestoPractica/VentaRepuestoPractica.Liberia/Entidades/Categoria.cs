@@ -16,7 +16,11 @@ namespace VentaRepuestoPractica.Libreria.Entidades
         public string Nombre { get => _nombre; }
 
         //Desarrollo constructor(?)
-
+        public Categoria (int codigo, string nombre)
+        { 
+            _codigo = codigo;
+            _nombre = nombre;
+        }
 
     }
 }

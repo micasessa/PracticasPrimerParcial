@@ -21,12 +21,20 @@ namespace VentaRepuestoPractica.Libreria.Entidades
         public int Stock { get => _stock; }
         public Categoria Categoria { get => _categoria; }
 
-        //Desarrollo constructor (?)
+        //Desarrollo constructor 
+        public Repuesto (int codigo, string nombre, double precio, int stock, Categoria cat)
+        {
+            _codigo = codigo;
+            _nombre = nombre;
+            _precio = precio;
+            _stock = stock;
+            _categoria = cat;
+        }
 
         //Desarrollo metodo UML
         public string ToString()
         {
-            Console.WriteLine("Falta desarrollo");
+            throw new NotImplementedException();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VentaRepuestoPractica.Libreria.Entidades;
 using Validaciones;
+using VentaRepuestoPractica.Liberia.Utility;
 
 namespace VentaRepuestoPractica.Consola
 {
@@ -76,12 +77,33 @@ namespace VentaRepuestoPractica.Consola
 
             //Muestro las categorias para que el usuario elija. hago un foreach!!
             Console.WriteLine("Las categorias son:");
-            foreach (Categoria c in CategoriaListas.)
+            //foreach (Categoria c in CategoriaListas.)
+            ListarCategorias();
+            codCategoria = Validador.pedirInt("Ingrese la categoria"); //valido que ingrese correctamente un numero
+            Categoria c = CategoriaHelper.GetCategoriaPorCodigo(codCategoria); //me sirve para buscar que el codigo ingresado por usuario EXISTA en la lista de categoria
 
-            
+            //agrego al repuesto la categoria que corresponde una vez que se hicieron las 2 validaciones.
+            Repuesto re = new Repuesto(codigo, nombre, precio, stock, c);
+
+            //agrego el repuesto a mi ventaderepuesto disponible
+            if(_tiendaRepuestos.AgregarRepuesto(re)) //FALTA DESARROLLO AGREGAR REPUESTO
+            {
+                Console.WriteLine("Se agregó el repuesto: " + re.ToString());
+            }
+            else
+            {
+                Console.WriteLine("No se pudo agregar repuesto.");
+            }
         }
 
-        
+        private static void ListarCategorias()
+        {
+            List<Categoria> todas = CategoriaHelper.GetCategorias();
+            foreach (Categoria k in todas)
+            {
+                Console.WriteLine(k.Codigo + " " + k.Nombre);
+            }
+        }
 
         private static void EliminarRepuesto()
         {

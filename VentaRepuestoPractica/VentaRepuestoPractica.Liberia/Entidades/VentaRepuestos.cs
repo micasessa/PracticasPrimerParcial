@@ -19,7 +19,7 @@ namespace VentaRepuestoPractica.Libreria.Entidades
         //Desarrollo Constructor (?)
 
         //Metodos del UML. Falta Desarrollo. ver tema variables puestas entreparentesis(al voleo)
-        public void AgregarRepuesto(Repuesto)
+        public bool AgregarRepuesto(Repuesto repuesto)
         { }
 
         public void QuitarRepuesto (int Codigo)
