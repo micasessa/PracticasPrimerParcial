@@ -7,7 +7,11 @@ using PresentismoPractica.Liberia.Utilidades;
 
 namespace PresentismoPractica.Liberia.Entidades
 {
-    class AlumnoOyente
+    public class AlumnoOyente : Alumno 
     {
+        public AlumnoOyente(int registro, string nombre, string apellido): base(registro, nombre, apellido)
+        {
+
+        }
     }
 }

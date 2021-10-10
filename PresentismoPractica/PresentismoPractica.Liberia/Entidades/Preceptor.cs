@@ -7,7 +7,20 @@ using PresentismoPractica.Liberia.Utilidades;
 
 namespace PresentismoPractica.Liberia.Entidades
 {
-    public class Preceptor
+    public class Preceptor : Persona
     {
+        private int _legajo;
+        
+        //Desarrollo constructor
+        public Preceptor() { }
+        public Preceptor (int legajo, string nombre, string apellido) : base(nombre, apellido)
+        {
+            _legajo = legajo;
+        }
+
+        //Des getter
+        public int Legajo { get => _legajo; }
+        internal string Display()
+        { }
     }
 }

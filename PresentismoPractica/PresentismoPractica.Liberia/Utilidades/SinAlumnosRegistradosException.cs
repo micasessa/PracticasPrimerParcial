@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PresentismoPractica.Liberia.Utilidades
 {
-    class SinAlumnosRegistradosException
+    public class SinAlumnosRegistradosException : Exception
     {
     }
 }

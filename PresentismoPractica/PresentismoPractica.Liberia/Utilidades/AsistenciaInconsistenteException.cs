@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PresentismoPractica.Liberia.Utilidades
 {
-    class AsistenciaInconsistenteException
+    public class AsistenciaInconsistenteException : Exception
     {
     }
 }

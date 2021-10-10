@@ -7,7 +7,23 @@ using PresentismoPractica.Liberia.Utilidades;
 
 namespace PresentismoPractica.Liberia.Entidades
 {
-    class Alumno
+    public abstract class Alumno : Persona
     {
+        private int _registro;
+
+        //Desarrollo constructor
+        public Alumno() { }
+        public Alumno(int registro, string nombre, string apellido) : base(nombre, apellido)
+        {
+            _registro = registro;
+        }
+
+        //Des getter
+        public int Registro { get => _registro; }
+
+
+        internal string Display()
+        { }
+
     }
 }

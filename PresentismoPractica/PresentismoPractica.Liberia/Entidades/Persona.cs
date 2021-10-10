@@ -9,5 +9,21 @@ namespace PresentismoPractica.Liberia.Entidades
 {
     public abstract class Persona
     {
+        protected string _nombre;
+        protected string _apellido;
+
+        //Desarrollo constructor
+        public Persona(string nombre, string apellido)
+        {
+            _nombre = nombre;
+            _apellido = apellido;
+        }
+        public Persona() { }
+        //Falta desarrollo
+        public string ToString()
+        { }
+
+        internal string Display()
+        { }
     }
 }
