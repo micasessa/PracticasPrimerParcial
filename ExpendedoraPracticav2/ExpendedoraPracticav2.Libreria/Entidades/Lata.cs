@@ -38,9 +38,13 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
 
         //des metodos vacios
         private double GetPrecioPorLitro()
-        { }
+        {
+            throw new NotImplementedException();
+        }
 
         public string ToString()
-        { }
+        { throw new NotImplementedException(); }
+
+
     }
 }

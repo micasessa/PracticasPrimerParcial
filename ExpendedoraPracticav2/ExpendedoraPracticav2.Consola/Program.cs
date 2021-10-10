@@ -26,12 +26,12 @@ namespace ExpendedoraPracticav2.Consola
                 switch (opcion)
                 {
                     case 0:
-                        EncenderMaquina(_maqExpendedora);
                         //El usuario enciende la maquina. Resultado: Maquina encendida.
+                        EncenderMaquina(_maqExpendedora);                        
                         break;
                     case 1:
-                        ListarLatasDispoibles(_maqExpendedora);
                         //El usuario pide el listado de latas disponibles.
+                        ListarLatasDispoibles(_maqExpendedora);                        
                         break;
                     case 2:
                         IngresarLata(_maqExpendedora);
@@ -46,7 +46,7 @@ namespace ExpendedoraPracticav2.Consola
                         //El Actor desea conocer el balance
                         break;
                     case 5:
-                        MostrarStock(_maqExpendedora);
+                        MostrarStock(_maqExpendedora);                        
                         //El Actor desea conocer todo el stock y la descripción completa por cada lata.
                         break;
                     case 6:
@@ -59,7 +59,7 @@ namespace ExpendedoraPracticav2.Consola
             } while (_consolaActiva);
 
         }
-
+        
         private static void EncenderMaquina(Expendedora _maqExpendedora)
         {
             _maqExpendedora.EncenderMaquina();
@@ -68,18 +68,27 @@ namespace ExpendedoraPracticav2.Consola
 
         private static void ListarLatasDispoibles(Expendedora _maqExpendedora)
         { //El usuario pide el listado de latas disponibles.
-          //Resultado: Se muestra en formato CODIGO) DESCRIPCION[CANTIDAD]
-          //Ej.CO1) Coca Cola Regular[5]
-            List<Lata> todas = LataHelper.GetListaLata();
-            foreach (Lata l in todas)
+          //Resultado: Se muestra en formato CODIGO) DESCRIPCION[CANTIDAD]. Ej.CO1) Coca Cola Regular[5]
+            //primero me fijo si la maquina esta vacia o no:
+            if(_maqExpendedora.EstaVacia() == true)
             {
-                Console.WriteLine(l.Codigo + ") " + l.Nombre + "[" + l.Cantidad + "]");
+                Console.WriteLine("La maquina está vacia. debe ingresar latas");
+            } else
+            {
+                List<Lata> todas = LataHelper.GetListaLata();
+                foreach (Lata l in todas)
+                {
+                    Console.WriteLine(l.Codigo + ") " + l.Nombre + "[" + l.Cantidad + "]");
+                }
             }
+
+            
         }
 
         private static void DesplegarOpcionesMenu()
         {
-            Console.WriteLine("******* Menu *******");
+            Console.WriteLine("Menu: ");
+            Console.WriteLine("0-Encienda la maquina");
             Console.WriteLine("1- Mostra Listas Latas disponibles");
             Console.WriteLine("2- Ingresar lata");
             Console.WriteLine("3- Extraer lata");
@@ -90,11 +99,43 @@ namespace ExpendedoraPracticav2.Consola
 
         static void IngresarLata(Expendedora _maqExpendedora)
         {
-            //El Actor inserta una lata de bebida variable a la máquina.
-            //Ingresa código, precio, volumen, cantidad (stock), nombre
-            //o	Resultado: Se ingresa una lata a la lista de la máquina. Precondiciones:La máquina está encendida
-            //Flujo alternativo 1: El código ya existe
-            //Flujo alternativo 2: La máquina está llena(capacidad insuficiente)
+            if (_maqExpendedora.Encendida == true) //Precondiciones:La máquina está encendida
+            {   //Resultado: Se ingresa una lata a la lista de la máquina.
+                try //intento que la maquina haga todo lo que está adentro de estos {}
+                {
+                    //El Actor inserta una lata de bebida variable a la máquina.Ingresa código, precio, volumen, cantidad (stock), nombre
+                    string cod;
+                    double precio;
+                    string nombre;
+                    string sabor;
+                    double volumen;
+                    int cantidad;
+                    //yo:pido al usuario que ingrese las variables
+                    cod = Validador.pedirString("Ingrese el codigo");
+                    nombre = Validador.pedirString("Ingrese el nombre");
+                    sabor = Validador.pedirString("Ingrese el sabor");
+                    precio = Validador.pedirDouble("Ingrese el precio");
+                    volumen = Validador.pedirDouble("Ingrese el volumen");
+                    cantidad = Validador.pedirInt("Ingrese la cantidad");
+
+                    //buscar que no exista el cod ingresado por usuario en mi maquina. si existe: mandar mensaje que no se puede agregar. else: add lata a la maquina
+                    //antes del add. meto otro if controlando la CAPACIDAD de la maquina: si se llego al max: no se puede agregar(mje), else: add lata
+                    
+                    Lata lt = LataHelper.GetLataPorCodigo(cod);
+                    Lata lata1 = new Lata(cod, nombre, sabor, precio, volumen, cantidad);
+                    _maqExpendedora.AgregarLata(lata1);
+                } catch (CodigoYaExistenteException ex) //Flujo alternativo 1: El código ya existe
+                { 
+                    Console.WriteLine(ex.Message); 
+                }
+                //catch() //Flujo alternativo 2: La máquina está llena(capacidad insuficiente)
+                //{ }
+                
+            } else
+            {
+                Console.WriteLine("La maquina esta apagada");
+            }
+
         }
 
         static void ExtraerLata(Expendedora _maqExpendedora)

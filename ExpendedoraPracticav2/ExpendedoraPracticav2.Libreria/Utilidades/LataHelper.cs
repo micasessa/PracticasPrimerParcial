@@ -1,9 +1,5 @@
-﻿using System;
+﻿using ExpendedoraPracticav2.Libreria.Entidades;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExpendedoraPracticav2.Libreria.Entidades;
 
 namespace ExpendedoraPracticav2.Libreria.Utilidades
 {
@@ -26,6 +22,22 @@ namespace ExpendedoraPracticav2.Libreria.Utilidades
         {
             return _lista;
         }
+        public static Lata GetLataPorCodigo(string cod)
+        {
+            Lata resultado = null;
+            //Busco por cada lata l en la lista de latas
+            //si el codigo de lata NO coincide con codigo recibido. esta ok
+            foreach (Lata l in _lista)
+            {
+                if (l.Codigo != cod)
+                {
+                    resultado = l; //el codigo lata buscado NO coincide con la lista 
+                }
+                else
+                { throw new CodigoYaExistenteException(cod); }
+                return resultado;
+            }
 
+        }
     }
 }

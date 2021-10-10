@@ -38,24 +38,26 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
             _encendida = true;
         }
 
-        public void AgregarLata(Lata)
-        {
+        public void AgregarLata(Lata _lata)
+        { //tengo que fijarme que NO supere la capacidad!
+            throw new NotImplementedException();
         }
 
         public Lata ExtraerLata(string cod, double precio)
-        { }
+        { throw new NotImplementedException(); }
 
         public string GetBalance()
-        { }
+        { throw new NotImplementedException(); }
 
         public int GetCapacidadRestante()
         {
+            throw new NotImplementedException();
         }
 
-
         public bool EstaVacia()
-        { }
+        { throw new NotImplementedException(); }
 
+        
 
     }
 }

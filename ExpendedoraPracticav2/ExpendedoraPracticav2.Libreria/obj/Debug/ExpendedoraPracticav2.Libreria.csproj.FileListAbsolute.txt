@@ -1,2 +1,6 @@
 C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Libreria\obj\Debug\ExpendedoraPracticav2.Libreria.csproj.CoreCompileInputs.cache
 C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Libreria\obj\Debug\ExpendedoraPracticav2.Libreria.csproj.AssemblyReference.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Libreria\bin\Debug\ExpendedoraPracticav2.Libreria.dll
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Libreria\bin\Debug\ExpendedoraPracticav2.Libreria.pdb
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Libreria\obj\Debug\ExpendedoraPracticav2.Libreria.dll
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Libreria\obj\Debug\ExpendedoraPracticav2.Libreria.pdb
