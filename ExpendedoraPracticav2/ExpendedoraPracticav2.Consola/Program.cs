@@ -21,37 +21,36 @@ namespace ExpendedoraPracticav2.Consola
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Bienvenido a la expendedora de "+_maqExpendedora.Proveedor);
-
             while (_consolaActiva)
             {
                 Console.Clear();
+                Console.WriteLine("Bienvenido a la expendedora de " + _maqExpendedora.Proveedor);                
                 DesplegarOpcionesMenu();
                 string opcion = Validador.pedirString("Ingrese la opcion que desea");
                 switch (opcion)
                 {
                     case "0":
                         //El usuario enciende la maquina. Resultado: Maquina encendida.
-                        EncenderMaquina(_maqExpendedora);                        
+                        Program.EncenderMaquina(_maqExpendedora);                        
                         break;
                     case "1":
                         //El usuario pide el listado de latas disponibles.
-                        ListarLatasDispoibles(_maqExpendedora);                        
+                        Program.ListarLatasDispoibles(_maqExpendedora);                        
                         break;
                     case "2":
-                        IngresarLata(_maqExpendedora);
+                        Program.IngresarLata(_maqExpendedora);
                         //El Actor inserta una lata de bebida variable a la máquina.  
                         break;
                     case "3":
-                        ExtraerLata(_maqExpendedora);
+                        Program.ExtraerLata(_maqExpendedora);
                         //El Actor elije una lata de la maquina por código, ingresa el dinero y la extrae.                        
                         break;
                     case "4":
-                        ObtenerBalance(_maqExpendedora);
+                        Program.ObtenerBalance(_maqExpendedora);
                         //El Actor desea conocer el balance
                         break;
                     case "5":
-                        MostrarStock(_maqExpendedora);                        
+                        Program.MostrarStock(_maqExpendedora);                        
                         //El Actor desea conocer todo el stock y la descripción completa por cada lata.
                         break;
                     case "6":
@@ -182,9 +181,16 @@ namespace ExpendedoraPracticav2.Consola
 
         static void ObtenerBalance(Expendedora _maqExpendedora)
         {
-            //El Actor desea conocer el balance
-            //Resultado: Muestra un string con el dinero que tiene la máquina y cuantas latas tiene.
-            //o Precondiciones 1: La máquina está encendida
+            if(_maqExpendedora.Encendida == true) //o Precondiciones 1: La máquina está encendida
+            {
+                //El Actor desea conocer el balance
+                //Resultado: Muestra un string con el dinero que tiene la máquina y cuantas latas tiene.
+                Console.WriteLine(_maqExpendedora.GetBalance());
+            }
+            else
+            {
+                Console.WriteLine("La maquina esta apagada");
+            } 
         }
 
         static void MostrarStock(Expendedora _maqExpendedora)

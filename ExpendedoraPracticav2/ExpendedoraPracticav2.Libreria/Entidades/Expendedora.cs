@@ -83,17 +83,26 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
                     }
                     else { throw new SinStockException(cod); }
                 }
-                else { throw new DineroInsuficienteException(precio); }
+                else { throw new DineroInsuficienteException(); }
             }
             else { throw new CodigoInvalidoException(cod); }
             
             return aBuscar;
         }
 
-            public string GetBalance()
-            { throw new NotImplementedException(); }
+        public string GetBalance()
+        {   //El Actor desea conocer el balance
+            //Resultado: Muestra un string con el dinero que tiene la máquina y cuantas latas tiene.
+            int cantLatas = 0;
+            //busco cuantas latas hay.
+            foreach (Lata l in _latas)
+            {
+                cantLatas = cantLatas + l.Cantidad;
+            }
+            return "Dinero recaudado: " + _dinero + "\n Cantidad de latas: " + cantLatas;
+        }
 
-            public int GetCapacidadRestante()
+        public int GetCapacidadRestante()
             { //Inicializo la cantidad de latas en 0
                 int cantLatas = 0;
                 //busco cuantas latas hay.
