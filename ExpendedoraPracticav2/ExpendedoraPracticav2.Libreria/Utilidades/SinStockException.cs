@@ -8,7 +8,7 @@ namespace ExpendedoraPracticav2.Libreria.Utilidades
 {
     public class SinStockException : Exception 
     {
-        public SinStockException(int cantidad) : base("No hay suficiente stock")
+        public SinStockException(string codigo) : base("No hay suficiente stock")
         {
         }
     }

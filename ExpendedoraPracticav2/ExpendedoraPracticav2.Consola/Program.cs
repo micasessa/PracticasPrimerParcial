@@ -155,21 +155,13 @@ namespace ExpendedoraPracticav2.Consola
                     //Usuario ingresa el codigo de la lata + dinero que va a ingresar
                     string codAIngresar = Validador.pedirString("Ingrese el codigo de la lata");
                     double dineroAIngresar = Validador.pedirDouble("Ingrese la cantidad de dinero");
-                    
-                    if (_maqExpendedora.ExtraerLata(codAIngresar, dineroAIngresar)//o Precondiciones 2: La lata existe.
-                    {   //	Se le listan los códigos de las latas(include CU 1)
-                        //	La lata es seleccionada mediante un código que ingresa el usuario.
-                        //	El Usuario ingresa dinero que tiene.
 
-
-
-                    }
-                    else
-                    {
-                        Console.WriteLine ("La lata ingresada no existe");
-                    }
+                    //"Mando" a libreria los valores ingresados por el usuario para que valide si existe
+                    Lata lataExtraida = _maqExpendedora.ExtraerLata(codAIngresar, dineroAIngresar);
+                    Console.WriteLine("La lata fue extraida");
+                     
                 }
-                catch (CodigoInvalidoException ex) //o Flujo alternativo 1: El código es inválido
+                catch (CodigoInvalidoException ex) //o Flujo alternativo 1: El código es inválido + //o Precondiciones 2: La lata existe
                 {
                     Console.WriteLine(ex.Message);
                 }
