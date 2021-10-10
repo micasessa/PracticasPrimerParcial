@@ -1,0 +1,6 @@
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\Validaciones\Validaciones\bin\Debug\Validaciones.dll
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\Validaciones\Validaciones\bin\Debug\Validaciones.pdb
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\Validaciones\Validaciones\obj\Debug\Validaciones.csproj.AssemblyReference.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\Validaciones\Validaciones\obj\Debug\Validaciones.csproj.CoreCompileInputs.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\Validaciones\Validaciones\obj\Debug\Validaciones.dll
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\Validaciones\Validaciones\obj\Debug\Validaciones.pdb

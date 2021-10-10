@@ -1,0 +1,10 @@
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\bin\Debug\VentaRepuestoPractica.Consola.exe.config
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\bin\Debug\VentaRepuestoPractica.Consola.exe
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\bin\Debug\VentaRepuestoPractica.Consola.pdb
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\bin\Debug\VentaRepuestoPractica.Liberia.dll
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\bin\Debug\VentaRepuestoPractica.Liberia.pdb
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\obj\Debug\VentaRepuestoPractica.Consola.csproj.AssemblyReference.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\obj\Debug\VentaRepuestoPractica.Consola.csproj.CoreCompileInputs.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\obj\Debug\VentaRepuestoPractica.Consola.csproj.CopyComplete
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\obj\Debug\VentaRepuestoPractica.Consola.exe
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Consola\obj\Debug\VentaRepuestoPractica.Consola.pdb

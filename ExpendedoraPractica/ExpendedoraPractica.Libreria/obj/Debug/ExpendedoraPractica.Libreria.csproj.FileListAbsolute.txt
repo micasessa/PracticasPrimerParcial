@@ -1,0 +1,2 @@
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPractica\ExpendedoraPractica.Libreria\obj\Debug\ExpendedoraPractica.Libreria.csproj.AssemblyReference.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPractica\ExpendedoraPractica.Libreria\obj\Debug\ExpendedoraPractica.Libreria.csproj.CoreCompileInputs.cache

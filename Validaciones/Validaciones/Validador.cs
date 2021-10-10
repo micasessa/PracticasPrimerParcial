@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Validaciones
 {
-    class Validador
+    public class Validador
     {
         public static int pedirMenu(string mensaje)
         {

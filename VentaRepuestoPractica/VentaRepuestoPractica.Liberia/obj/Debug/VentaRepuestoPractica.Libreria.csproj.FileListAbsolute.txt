@@ -1,0 +1,6 @@
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Liberia\bin\Debug\VentaRepuestoPractica.Liberia.dll
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Liberia\bin\Debug\VentaRepuestoPractica.Liberia.pdb
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Liberia\obj\Debug\VentaRepuestoPractica.Libreria.csproj.AssemblyReference.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Liberia\obj\Debug\VentaRepuestoPractica.Libreria.csproj.CoreCompileInputs.cache
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Liberia\obj\Debug\VentaRepuestoPractica.Liberia.dll
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\VentaRepuestoPractica\VentaRepuestoPractica.Liberia\obj\Debug\VentaRepuestoPractica.Liberia.pdb
