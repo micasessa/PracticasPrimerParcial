@@ -9,3 +9,4 @@ C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\Expendedor
 C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Consola\bin\Debug\Validaciones.dll
 C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Consola\bin\Debug\Validaciones.pdb
 C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Consola\bin\Debug\ExpendedoraPracticav2.Libreria.pdb
+C:\Users\micas\GitHubCAI\PracticasPrimerParcial\ExpendedoraPracticav2\ExpendedoraPracticav2.Consola\obj\Debug\ExpendedoraPracticav2.Consola.csproj.CopyComplete

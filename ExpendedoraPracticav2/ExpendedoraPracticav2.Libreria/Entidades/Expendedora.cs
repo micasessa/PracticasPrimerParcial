@@ -40,7 +40,20 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
         public bool Encendida { get => _encendida; }
         public List<Lata> Latas { get => _latas; }
 
-        //des metodos (vacios). chequear variables
+        static Expendedora()
+        {
+            List<Lata>_latas = new List<Lata>();
+            Lata lat1 = new Lata("001", "CocaCola", "Coca", 50, 500, 1000);
+            Lata lat2 = new Lata("002", "Fanta", "Naranja", 45, 500, 1000);
+            Lata lat3 = new Lata("003", "Sprite", "Lima", 55, 500, 1000);
+
+            _latas.Add(lat1);
+            _latas.Add(lat2);
+            _latas.Add(lat3);
+        }
+        
+
+        //des metodos
         public void EncenderMaquina()
         {
             _encendida = true;
@@ -55,7 +68,7 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
                 throw new CodigoInvalidoException(_lataAAgregar.Codigo);
             } else
             { //if controlando la CAPACIDAD de la maquina: si se llego al max: no se puede agregar(mje), else: add lata
-                if (GetCapacidadRestante() < 1)
+                if (GetCapacidadRestante() == 0 || (GetCapacidadRestante() - _lataAAgregar.Cantidad) < 0)
                 {
                     throw new CapacidadInsuficienteException(_lataAAgregar.Cantidad);
                 } else

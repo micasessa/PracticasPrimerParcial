@@ -194,12 +194,15 @@ namespace ExpendedoraPracticav2.Consola
         }
 
         static void MostrarStock(Expendedora _maqExpendedora)
-        {
-            //El Actor desea conocer todo el stock y la descripción completa por cada lata.
-            //o Resultado: Muestra por pantalla la lista de las latas, y por cada lata el siguiente string:
-            //	  "{nombre} - {sabor} $ {precio} / $/L {precio por litro} - [{cantidad}]"
-            //o Precondiciones 1: La máquina está encendida.
-            //o Precondiciones 2: La máquina no está vacía.
+        {   //o Precondiciones 1: La máquina está encendida. //o Precondiciones 2: La máquina no está vacía.
+            if (_maqExpendedora.Encendida == true && _maqExpendedora.EstaVacia() == false) 
+            {   //El Actor desea conocer todo el stock y la descripción completa por cada lata.                
+                Console.WriteLine(_maqExpendedora.Latas.ToString());
+            }
+            else
+            {
+                Console.WriteLine("La maquina esta apagada");
+            }
         }
     }
 }

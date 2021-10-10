@@ -39,13 +39,16 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
         //des metodos vacios
         private double GetPrecioPorLitro()
         {
-            throw new NotImplementedException();
+            double prPorLitro = (_precio*1000)/_volumen;
+            return prPorLitro;            
         }
 
         public string ToString()
-        {
-            return "Codigo: " + _codigo + "\n Nombre: " + _nombre + "\n Sabor: " + _sabor + "\n Precio: " + _precio
-                  + "\n Cantidad: " + _cantidad + "\n Volumen: " + _volumen;
+        { //o Resultado: Muestra por pantalla la lista de las latas, y por cada lata el siguiente string:
+          // "{nombre} - {sabor} $ {precio} / $/L {precio por litro} - [{cantidad}]"
+
+            return $"{_nombre} - {_sabor} $ {_precio} / $/L {GetPrecioPorLitro()} - [{_cantidad}]";
+
         }
 
 
