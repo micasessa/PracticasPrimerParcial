@@ -10,8 +10,7 @@ using Validaciones;
 namespace ExpendedoraPracticav2.Consola
 {
     class Program
-    {
-        
+    {        
         static void Main(string[] args)
         {
             bool _consolaActiva = true;
