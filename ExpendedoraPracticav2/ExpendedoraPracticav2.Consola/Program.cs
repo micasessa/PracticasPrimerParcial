@@ -146,17 +146,46 @@ namespace ExpendedoraPracticav2.Consola
         }
 
         static void ExtraerLata(Expendedora _maqExpendedora)
-        {
-            //El Actor elije una lata de la maquina por código, ingresa el dinero y la extrae.
-            //	Se le listan los códigos de las latas(include CU 1)
-            //	La lata es seleccionada mediante un código que ingresa el usuario.
-            //	El Usuario ingresa dinero que tiene.
-            //o Resultado: El usuario obtiene su lata, la maquina acumula dinero y se resta del stock de esa lata
-            //o Precondiciones 1: La máquina está encendida.
-            //o Precondiciones 2: La lata existe.
-            //o Flujo alternativo 1: El código es inválido
-            //o Flujo alternativo 2: El dinero no es suficiente
-            //o   Flujo alternativo 3: No hay stock de esa lata
+        {   //o Resultado: El usuario obtiene su lata, la maquina acumula dinero y se resta del stock de esa lata
+            if (_maqExpendedora.Encendida == true) //o Precondiciones 1: La máquina está encendida.
+            {
+                try
+                {
+                    //El Actor elije una lata de la maquina por código, ingresa el dinero y la extrae.
+                    //Usuario ingresa el codigo de la lata + dinero que va a ingresar
+                    string codAIngresar = Validador.pedirString("Ingrese el codigo de la lata");
+                    double dineroAIngresar = Validador.pedirDouble("Ingrese la cantidad de dinero");
+                    
+                    if (_maqExpendedora.ExtraerLata(codAIngresar, dineroAIngresar)//o Precondiciones 2: La lata existe.
+                    {   //	Se le listan los códigos de las latas(include CU 1)
+                        //	La lata es seleccionada mediante un código que ingresa el usuario.
+                        //	El Usuario ingresa dinero que tiene.
+
+
+
+                    }
+                    else
+                    {
+                        Console.WriteLine ("La lata ingresada no existe");
+                    }
+                }
+                catch (CodigoInvalidoException ex) //o Flujo alternativo 1: El código es inválido
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (DineroInsuficienteException ex)//o Flujo alternativo 2: El dinero no es suficiente
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (SinStockException ex) //o   Flujo alternativo 3: No hay stock de esa lata
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+            } else
+            {
+                Console.WriteLine ("La maquina esta apagada");
+            }
         }
 
         static void ObtenerBalance(Expendedora _maqExpendedora)

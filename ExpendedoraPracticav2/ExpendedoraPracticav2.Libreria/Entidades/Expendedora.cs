@@ -35,7 +35,7 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
 
         //des propiedades
         public string Proveedor { get => _proveedor; }
-        public int Capacidad { get => _capacidad; set { _capacidad = value; } }
+        public int Capacidad { get => _capacidad; set { _capacidad = 200; } }
         public double Dinero { get => _dinero; set { _dinero = value; } }
         public bool Encendida { get => _encendida; }
         public List<Lata> Latas { get => _latas; }
@@ -55,27 +55,34 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
                     throw new CodigoInvalidoException(_lataAAgregar.Codigo);
                 } else
                 { //if controlando la CAPACIDAD de la maquina: si se llego al max: no se puede agregar(mje), else: add lata
-                    if (GetCapacidadRestante)
+                    if (GetCapacidadRestante() < 1)
                     {
-                        throw new CapacidadInsuficienteException(_lataAAgregar.Codigo);
+                        throw new CapacidadInsuficienteException(_lataAAgregar.Cantidad);
                     } else
                     {
-                        _latas.Add(_lataAAgregar);
+                        Latas.Add(_lataAAgregar);
                     }
                 }
             }            
         }
 
         public Lata ExtraerLata(string cod, double precio)
-        { throw new NotImplementedException(); }
+        { //me fijo si la lata ingresada existe
+
+            throw new NotImplementedException(); }
 
         public string GetBalance()
         { throw new NotImplementedException(); }
 
         public int GetCapacidadRestante()
-        { //Inicializo la capacidad en 0
-            int capacidadMaq = 0;
-            throw new NotImplementedException();
+        { //Inicializo la cantidad de latas en 0
+            int cantLatas = 0;
+            //busco cuantas latas hay.
+            foreach (Lata l in _latas)
+            {
+                cantLatas = cantLatas + l.Cantidad;   
+            }
+            return _capacidad - cantLatas; //me devuelve la cantidad de latas disponibles para "llenar"
         }
 
         public bool EstaVacia()

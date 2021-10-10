@@ -8,7 +8,7 @@ namespace ExpendedoraPracticav2.Libreria.Utilidades
 {
     public class CapacidadInsuficienteException :Exception
     {
-        public CapacidadInsuficienteException(string message) : base("Ya no hay mas capacidad para agregar bebidas a la maquina")
+        public CapacidadInsuficienteException(int cantidad) : base("Ya no hay mas capacidad para agregar bebidas a la maquina")
         {
         }
 

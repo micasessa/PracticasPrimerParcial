@@ -34,7 +34,7 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
         public string Sabor { get => _sabor; }
         public double Precio { get => _precio; set { _precio = value; } }
         public double Volumen { get => _volumen; set { _volumen = value; } }
-        public int Cantidad { get => _cantidad; set { _cantidad = value; } }
+        public int Cantidad { get => _cantidad; set { _cantidad = 500; } }
 
         //des metodos vacios
         private double GetPrecioPorLitro()

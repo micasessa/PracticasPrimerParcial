@@ -8,5 +8,8 @@ namespace ExpendedoraPracticav2.Libreria.Utilidades
 {
     public class DineroInsuficienteException : Exception
     {
+        public DineroInsuficienteException(double dinero) : base("No hay suficiente dinero")
+        {
+        }
     }
 }
