@@ -4,10 +4,10 @@ using System.Runtime.Serialization;
 namespace ExpendedoraPracticav2.Libreria.Utilidades
 {
     
-    public class CodigoYaExistenteException : Exception
+    public class CodigoInvalidoException : Exception
     {
 
-        public CodigoYaExistenteException(string message) : base("El codigo ingresado ya existe")
+        public CodigoInvalidoException(string message) : base("El codigo ingresado ya existe")
         {
         }
 

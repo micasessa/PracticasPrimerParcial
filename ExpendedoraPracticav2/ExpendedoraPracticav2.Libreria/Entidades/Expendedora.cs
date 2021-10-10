@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExpendedoraPracticav2.Libreria.Utilidades;
 
 namespace ExpendedoraPracticav2.Libreria.Entidades
 {
@@ -24,6 +25,13 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
             _encendida = encendida;
             _latas = new List<Lata>();
         }
+        public Expendedora(string proveedor, int capacidad, double dinero)
+        {
+            _proveedor = proveedor;
+            _capacidad = capacidad;
+            _dinero = dinero;
+            _latas = new List<Lata>();
+        }
 
         //des propiedades
         public string Proveedor { get => _proveedor; }
@@ -38,9 +46,24 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
             _encendida = true;
         }
 
-        public void AgregarLata(Lata _lata)
-        { //tengo que fijarme que NO supere la capacidad!
-            throw new NotImplementedException();
+        public void AgregarLata(Lata _lataAAgregar)
+        {   
+            foreach (Lata l in _latas)
+            { //buscar que no exista el cod ingresado por usuario en mi maquina. si existe: mandar mensaje que no se puede agregar. else: add lata a la maquina
+                if (l.Codigo == _lataAAgregar.Codigo)
+                {
+                    throw new CodigoInvalidoException(_lataAAgregar.Codigo);
+                } else
+                { //if controlando la CAPACIDAD de la maquina: si se llego al max: no se puede agregar(mje), else: add lata
+                    if (GetCapacidadRestante)
+                    {
+                        throw new CapacidadInsuficienteException(_lataAAgregar.Codigo);
+                    } else
+                    {
+                        _latas.Add(_lataAAgregar);
+                    }
+                }
+            }            
         }
 
         public Lata ExtraerLata(string cod, double precio)
@@ -50,14 +73,25 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
         { throw new NotImplementedException(); }
 
         public int GetCapacidadRestante()
-        {
+        { //Inicializo la capacidad en 0
+            int capacidadMaq = 0;
             throw new NotImplementedException();
         }
 
         public bool EstaVacia()
-        { throw new NotImplementedException(); }
+        { //esta vacia: si no hay Latas => me tengo que fijar si hay o no hay latas
+            bool flag = true;
+            if (_latas.Count() == 0 ) 
+            {
+                flag = true; //rdo si esta vacia
+            } else
+            {
+                flag = false; //rdo si hay latas
+            }
+            return flag;            
+        }
 
         
 
-    }
+        }
 }

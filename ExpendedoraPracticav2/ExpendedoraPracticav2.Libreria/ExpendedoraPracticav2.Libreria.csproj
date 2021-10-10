@@ -44,8 +44,11 @@
     <Compile Include="Entidades\Expendedora.cs" />
     <Compile Include="Entidades\Lata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilidades\CodigoYaExistenteException.cs" />
+    <Compile Include="Utilidades\CapacidadInsuficienteException.cs" />
+    <Compile Include="Utilidades\CodigoInvalidoException.cs" />
+    <Compile Include="Utilidades\DineroInsuficienteException.cs" />
     <Compile Include="Utilidades\LataHelper.cs" />
+    <Compile Include="Utilidades\SinStockException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

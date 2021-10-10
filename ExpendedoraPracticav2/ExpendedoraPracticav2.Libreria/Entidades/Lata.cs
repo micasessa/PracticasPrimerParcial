@@ -43,8 +43,12 @@ namespace ExpendedoraPracticav2.Libreria.Entidades
         }
 
         public string ToString()
-        { throw new NotImplementedException(); }
+        {
+            return "Codigo: " + _codigo + "\n Nombre: " + _nombre + "\n Sabor: " + _sabor + "\n Precio: " + _precio
+                  + "\n Cantidad: " + _cantidad + "\n Volumen: " + _volumen;
+        }
 
 
+        
     }
 }

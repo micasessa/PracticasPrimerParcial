@@ -10,53 +10,60 @@ using Validaciones;
 namespace ExpendedoraPracticav2.Consola
 {
     class Program
-    {        
+    {
+        static bool _consolaActiva;
+        static Expendedora _maqExpendedora;
+
+        static Program()
+        {
+            _consolaActiva = true;
+            _maqExpendedora = new Expendedora("CocaCola Company", 20000, 5000);
+        }
         static void Main(string[] args)
         {
-            bool _consolaActiva = true;
-            Expendedora _maqExpendedora = new Expendedora();
-            LataHelper.GetListaLata();
+            Console.WriteLine("Bienvenido a la expendedora de "+_maqExpendedora.Proveedor);
 
-            int opcion;
-            do
+            while (_consolaActiva)
             {
-                Console.WriteLine("Bienvenido");
+                Console.Clear();
                 DesplegarOpcionesMenu();
-                opcion = Validador.pedirInt("Ingrese la opcion que desea");
+                string opcion = Validador.pedirString("Ingrese la opcion que desea");
                 switch (opcion)
                 {
-                    case 0:
+                    case "0":
                         //El usuario enciende la maquina. Resultado: Maquina encendida.
                         EncenderMaquina(_maqExpendedora);                        
                         break;
-                    case 1:
+                    case "1":
                         //El usuario pide el listado de latas disponibles.
                         ListarLatasDispoibles(_maqExpendedora);                        
                         break;
-                    case 2:
+                    case "2":
                         IngresarLata(_maqExpendedora);
                         //El Actor inserta una lata de bebida variable a la máquina.  
                         break;
-                    case 3:
+                    case "3":
                         ExtraerLata(_maqExpendedora);
                         //El Actor elije una lata de la maquina por código, ingresa el dinero y la extrae.                        
                         break;
-                    case 4:
+                    case "4":
                         ObtenerBalance(_maqExpendedora);
                         //El Actor desea conocer el balance
                         break;
-                    case 5:
+                    case "5":
                         MostrarStock(_maqExpendedora);                        
                         //El Actor desea conocer todo el stock y la descripción completa por cada lata.
                         break;
-                    case 6:
+                    case "6":
                         _consolaActiva = false;
                         break;
                     default:
                         Console.WriteLine("Opcion invalida.");
                         break;
                 }
-            } while (_consolaActiva);
+                Console.WriteLine("presione una tecla para salir");
+                Console.ReadLine();
+            }
 
         }
         
@@ -120,22 +127,22 @@ namespace ExpendedoraPracticav2.Consola
 
                     //buscar que no exista el cod ingresado por usuario en mi maquina. si existe: mandar mensaje que no se puede agregar. else: add lata a la maquina
                     //antes del add. meto otro if controlando la CAPACIDAD de la maquina: si se llego al max: no se puede agregar(mje), else: add lata
-                    
-                    Lata lt = LataHelper.GetLataPorCodigo(cod);
+                                        
                     Lata lata1 = new Lata(cod, nombre, sabor, precio, volumen, cantidad);
                     _maqExpendedora.AgregarLata(lata1);
-                } catch (CodigoYaExistenteException ex) //Flujo alternativo 1: El código ya existe
+                } catch (CodigoInvalidoException ex) //Flujo alternativo 1: El código ya existe
                 { 
                     Console.WriteLine(ex.Message); 
                 }
-                //catch() //Flujo alternativo 2: La máquina está llena(capacidad insuficiente)
-                //{ }
+                catch(CapacidadInsuficienteException ex) //Flujo alternativo 2: La máquina está llena(capacidad insuficiente)
+                {
+                    Console.WriteLine(ex.Message);
+                }
                 
             } else
             {
                 Console.WriteLine("La maquina esta apagada");
             }
-
         }
 
         static void ExtraerLata(Expendedora _maqExpendedora)
