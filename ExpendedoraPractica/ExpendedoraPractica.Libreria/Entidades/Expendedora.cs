@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExpendedoraPractica.Libreria.Utilidades;
 
-namespace ExpendedoraPractica.Libreria
+namespace ExpendedoraPractica.Libreria.Entidades
 {
     public class Expendedora
     {
@@ -16,13 +17,13 @@ namespace ExpendedoraPractica.Libreria
 
         //Des constructores
         public Expendedora() { }
-        public Expendedora (string proveedor, int capacidad,double dinero, bool encendida)
+        public Expendedora(string proveedor, int capacidad, double dinero, bool encendida)
         {
             _proveedor = proveedor;
             _capacidad = capacidad;
             _dinero = dinero;
             _encendida = encendida;
-            _latas = new List<Lata>;
+            _latas = new List<Lata>();
         }
 
         //des propiedades
@@ -30,10 +31,16 @@ namespace ExpendedoraPractica.Libreria
         public int Capacidad { get => _capacidad; set { _capacidad = value; } }
         public double Dinero { get => _dinero; set { _dinero = value; } }
         public bool Encendida { get => _encendida; }
+        public List<Lata> Latas { get => _latas; }
 
         //des metodos (vacios). chequear variables
+        public void EncenderMaquina()
+        {
+            _encendida = true;
+        }
+
         public void AgregarLata(Lata)
-        { 
+        {
         }
 
         public Lata ExtraerLata(string cod, double precio)
@@ -43,13 +50,13 @@ namespace ExpendedoraPractica.Libreria
         { }
 
         public int GetCapacidadRestante()
-        { 
+        {
         }
 
-        public void EncenderMaquina()
-        { }
 
         public bool EstaVacia()
         { }
+
+
     }
 }

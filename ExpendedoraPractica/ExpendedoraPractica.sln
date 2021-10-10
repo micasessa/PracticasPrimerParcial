@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpendedoraPractica.Consola", "ExpendedoraPractica.Consola\ExpendedoraPractica.Consola.csproj", "{071322D2-1EC1-4325-975E-F60CEF73ED50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpendedoraPractica.Libreria", "ExpendedoraPractica.Libreria\ExpendedoraPractica.Libreria.csproj", "{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpendedoraPractica.Libreria", "ExpendedoraPractica.Libreria\ExpendedoraPractica.Libreria.csproj", "{C6B65F33-7868-4610-A4CD-BFDC2D7E9385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{071322D2-1EC1-4325-975E-F60CEF73ED50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{071322D2-1EC1-4325-975E-F60CEF73ED50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{071322D2-1EC1-4325-975E-F60CEF73ED50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EA9BD6D-66B1-4C82-86BE-F694BAF430F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6B65F33-7868-4610-A4CD-BFDC2D7E9385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6B65F33-7868-4610-A4CD-BFDC2D7E9385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6B65F33-7868-4610-A4CD-BFDC2D7E9385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6B65F33-7868-4610-A4CD-BFDC2D7E9385}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

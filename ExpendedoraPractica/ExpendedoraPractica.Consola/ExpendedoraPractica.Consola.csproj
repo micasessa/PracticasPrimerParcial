@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExpendedoraPractica.Libreria\ExpendedoraPractica.Libreria.csproj">
-      <Project>{0ea9bd6d-66b1-4c82-86be-f694baf430f3}</Project>
+      <Project>{c6b65f33-7868-4610-a4cd-bfdc2d7e9385}</Project>
       <Name>ExpendedoraPractica.Libreria</Name>
     </ProjectReference>
   </ItemGroup>
