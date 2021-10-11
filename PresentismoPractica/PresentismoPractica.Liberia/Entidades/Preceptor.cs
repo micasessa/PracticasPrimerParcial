@@ -20,7 +20,9 @@ namespace PresentismoPractica.Liberia.Entidades
 
         //Des getter
         public int Legajo { get => _legajo; }
-        internal string Display()
-        { }
+        internal override string Display()
+        { //“APELLIDO - LEGAJO”
+            return "Apellido " + _apellido + " - Legajo " + _legajo;
+        }
     }
 }

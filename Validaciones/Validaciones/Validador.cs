@@ -68,7 +68,7 @@ namespace Validaciones
         public static int pedirInt(string mensaje)
         {
             int numero = 0;
-            bool pudeConvertir;
+            bool pudeConvertir = true;
 
             do
             {
@@ -78,14 +78,14 @@ namespace Validaciones
                 {
                     if (numero > 0)
                     {
-                        Console.WriteLine(mensaje);
+                        pudeConvertir = true;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Debe ingresar un valor numerico");                    
+                    Console.WriteLine("Debe ingresar un valor numerico");
                 }
-            } while (numero > 0);
+            } while (!pudeConvertir && numero > 0);
 
             return numero;
         }

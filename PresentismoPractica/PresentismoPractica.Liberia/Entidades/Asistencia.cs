@@ -18,13 +18,13 @@ namespace PresentismoPractica.Liberia.Entidades
         //Des constructores
         public Asistencia() { }
 
-        public Asistencia (string fechaRef, DateTime fechaHoraReal, bool estaPresente)
+        public Asistencia (string fechaRef, DateTime fechaHoraReal, bool estaPresente, Preceptor p, Alumno a)
         {
             _fechaReferencia = fechaRef;
             _fechaHoraReal = fechaHoraReal;
             _estaPresente = estaPresente;
-            _preceptor = new Preceptor();
-            //_alumno = new Alumno();
+            _preceptor = p;
+            _alumno = a;
 
         }
 
@@ -36,8 +36,8 @@ namespace PresentismoPractica.Liberia.Entidades
         public bool EstaPresente { get => _estaPresente; }
 
         public string ToString()
-        {
-
+        { //"FECHAREFERENCIA {ALUMNO FORMATEADO} está presente {SI o NO} por { PRECEPTOR FORMATEADO} registrado el { FECHAHORAREAL}"
+            return _fechaReferencia + "{ " + _alumno + " } - Asistió:  " + _estaPresente + " por " + _preceptor + " - Registrado el " + _fechaHoraReal;
         }
 
     }

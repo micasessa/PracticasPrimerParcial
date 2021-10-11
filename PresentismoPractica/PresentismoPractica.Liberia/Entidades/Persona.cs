@@ -13,17 +13,20 @@ namespace PresentismoPractica.Liberia.Entidades
         protected string _apellido;
 
         //Desarrollo constructor
+        public Persona() { }
         public Persona(string nombre, string apellido)
         {
             _nombre = nombre;
             _apellido = apellido;
         }
-        public Persona() { }
+        
         //Falta desarrollo
         public string ToString()
-        { }
+        {
+            return "Nombre: " + _nombre + " - Apellido: " + _apellido;
+        }
 
-        internal string Display()
+        internal abstract string Display()
         { }
     }
 }

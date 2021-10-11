@@ -20,7 +20,7 @@ namespace PresentismoPractica.Consola
         {
             Preceptor preceptorActivo = _presentismo.GetPreceptorActivo();
             DesplegarOpcionesMenu();
-            string opcionMenu = ""; // pedir el valor
+            string opcionMenu = Validador.pedirString ("Ingrese una opcion del menu"); // pedir el valor
             switch (opcionMenu)
             {
                 case "1":

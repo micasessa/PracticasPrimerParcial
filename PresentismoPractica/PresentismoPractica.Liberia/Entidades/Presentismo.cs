@@ -20,6 +20,19 @@ namespace PresentismoPractica.Liberia.Entidades
         public List<Asistencia> Asistencias { get => _asistencias; }
         public List<string> Fechas { get => _fechas; }
 
+        //Datos inicializacion
+        public Presentismo()
+        {
+            _alumnos = new List<Alumno>();
+            _asistencias = new List<Asistencia>();
+            _preceptores = new List<Preceptor>();
+            _fechas = new List<string>();
+            _alumnos.Add(new AlumnoRegular(123, "Carlos", "Juarez", "cjua@gmail.com"));
+            _alumnos.Add(new AlumnoRegular(124, "Carla", "Jaime", "cjai@gmail.com"));
+            _alumnos.Add(new AlumnoOyente(320, "Ramona", "Vals"));
+            _alumnos.Add(new AlumnoOyente(321, "Alejandro", "Medina"));
+            _preceptores.Add(new Preceptor(5, "Jorgelina", "Ramos"));
+        }
 
         //Metodos enunciado (Vacios)
         private bool AsistenciaRegistrada (string fecha)
@@ -39,6 +52,8 @@ namespace PresentismoPractica.Liberia.Entidades
         { }
         public List<Asistencia> GetAsistenciasPorFecha (string a)
         { }
+
+
 
     }
 }
