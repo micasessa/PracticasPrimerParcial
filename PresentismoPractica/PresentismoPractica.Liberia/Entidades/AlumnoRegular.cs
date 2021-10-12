@@ -16,6 +16,9 @@ namespace PresentismoPractica.Liberia.Entidades
         {
             _email = email;
         }
+        public AlumnoRegular(string nombre) : base (nombre)
+        {
+        }
 
         //Des getter
         public string Email { get => _email; }

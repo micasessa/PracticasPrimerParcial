@@ -48,8 +48,20 @@ namespace PresentismoPractica.Liberia.Entidades
         public List<Alumno> GetListaAlumno(string a)
         { }
 
-        public void AgregarAsistencia (List<Asistencia>, string a)
-        { }
+        public void AgregarAsistencia (List<Asistencia> listaAsis, string fechaAsis)
+        {
+            if (fechaAsis.Equals(_fechas))
+            {
+                throw new AsistenciaExistenteEseDiaException();
+            }
+            else
+            {                
+                Asistencia asistencia = new Asistencia(fechaAsis, DateTime.Now);
+                _asistencias.Add(asistencia);
+                _fechas.Add(fechaAsis);
+            }
+            
+        }
         public List<Asistencia> GetAsistenciasPorFecha (string a)
         { }
 

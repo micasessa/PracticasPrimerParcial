@@ -14,6 +14,10 @@ namespace PresentismoPractica.Liberia.Entidades
 
         //Desarrollo constructor
         public Persona() { }
+        public Persona(string nombre) 
+        {
+            _nombre = nombre;
+        }
         public Persona(string nombre, string apellido)
         {
             _nombre = nombre;

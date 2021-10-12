@@ -25,7 +25,19 @@ namespace PresentismoPractica.Liberia.Entidades
             _estaPresente = estaPresente;
             _preceptor = p;
             _alumno = a;
+        }
+        public Asistencia(string fechaRef, DateTime fechaHoraReal, Preceptor p, Alumno a)
+        {
+            _fechaReferencia = fechaRef;
+            _fechaHoraReal = fechaHoraReal;
+            _preceptor = p;
+            _alumno = a;
+        }
 
+        public Asistencia(string fechaRef, DateTime fechaHoraReal)
+        {
+            _fechaReferencia = fechaRef;
+            _fechaHoraReal = fechaHoraReal; 
         }
 
         //Des propiedades(getter)
@@ -33,7 +45,7 @@ namespace PresentismoPractica.Liberia.Entidades
         public DateTime FechaHoraReal { get => _fechaHoraReal; }
         public Preceptor Preceptor { get => _preceptor; }
         public Alumno Alumno { get => _alumno; }
-        public bool EstaPresente { get => _estaPresente; }
+        public bool EstaPresente { get => _estaPresente; set { _estaPresente = value; } }
 
         public string ToString()
         { //"FECHAREFERENCIA {ALUMNO FORMATEADO} está presente {SI o NO} por { PRECEPTOR FORMATEADO} registrado el { FECHAHORAREAL}"

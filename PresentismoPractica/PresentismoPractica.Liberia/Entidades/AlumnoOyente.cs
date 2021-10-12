@@ -13,5 +13,8 @@ namespace PresentismoPractica.Liberia.Entidades
         {
 
         }
+        public AlumnoOyente (string nombre) : base(nombre)
+        {
+        }
     }
 }

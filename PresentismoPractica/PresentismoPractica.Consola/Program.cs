@@ -19,22 +19,27 @@ namespace PresentismoPractica.Consola
         static void Main(string[] args)
         {
             Preceptor preceptorActivo = _presentismo.GetPreceptorActivo();
-            DesplegarOpcionesMenu();
-            string opcionMenu = Validador.pedirString ("Ingrese una opcion del menu"); // pedir el valor
-            switch (opcionMenu)
+            string opcionMenu;
+            do
             {
-                case "1":
-                    TomarAsistencia(preceptorActivo);
-                    break;
-                case "2":
-                    MostrarAsistencia();
-                    break;
-                case "X":
-                    // SALIR
-                    break;
-                default:
-                    break;
-            }
+                DesplegarOpcionesMenu();
+                opcionMenu = Validador.pedirString("Ingrese una opcion del menu"); // pedir el valor
+                switch (opcionMenu)
+                {
+                    case "1":
+                        TomarAsistencia(preceptorActivo);
+                        break;
+                    case "2":
+                        MostrarAsistencia();
+                        break;
+                    case "X":
+                        // SALIR
+                        break;
+                    default:
+                        break;
+                }
+            } while (opcionMenu != "X");
+                 
         }
         static void DesplegarOpcionesMenu()
         {
@@ -42,14 +47,60 @@ namespace PresentismoPractica.Consola
             Console.WriteLine("2) Mostrar Asistencia");
             Console.WriteLine("X: Terminar");
         }
+
+        //2) Se deberá poder tomar asistencia de un día en particular (ingresado por usuario) a todos los alumnos regulares registrados. (Alta Asistencia)
         static void TomarAsistencia(Preceptor p)
         {
-            // Ingreso fecha
-            // Listar los alumnos
-            // para cada alumno solo preguntar si está presente
-            // agrego la lista de asistencia
-            // Error: mostrar el error y que luego muestre el menu nuevamente
+            try
+            {
+                // Ingreso fecha
+                string fechaAsistencia = Validador.pedirString("Ingrese la fecha:");
+                List<Asistencia> listaasistencia1 = new List<Asistencia>();
+                // Listar todos los alumnos (regulares y oyentes)
+                foreach (Alumno al in _presentismo.Alumnos)
+                {
+                    Console.WriteLine(al.ToString());
+                    //Si el alumno no es regular, mostrar por pantalla “El alumno {FORMATO} es oyente” y no pedir asistencia ni agregar a la lista de asistencia.
+                    if (al is AlumnoRegular)
+                    {   //Agrego una asistencia con los datos que ya tengo (fecha pedida al usuario, preceptor, todos los alumnos regulares.
+                        Asistencia asistencia1 = new Asistencia(fechaAsistencia, DateTime.Now, p, al);
+                        // para cada alumno solo preguntar si está presente
+                        string alumnoPresente = Validador.pedirString (al.ToString() + "está presente? SI / NO ?").ToUpper();
+
+                        if(alumnoPresente == "SI")
+                        {
+                            asistencia1.EstaPresente = true;
+                            // agrego la lista de asistencia
+                            _presentismo.AgregarAsistencia(listaasistencia1, fechaAsistencia );                            
+                            // Error: mostrar el error y que luego muestre el menu nuevamente
+                        }
+                        else
+                        {
+                            asistencia1.EstaPresente = false;
+                            Console.WriteLine("El alumno no está presente.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("El alumno " + al.ToString() + " es oyente." );
+                    }
+                }
+            }
+            catch (AsistenciaExistenteEseDiaException ex)
+            {
+                Console.WriteLine("Ya se tomó asistencia este dia.");
+            } 
+            catch (SinAlumnosRegistradosException ex)
+            {
+                Console.WriteLine("El alumno es oyente, no está registrado");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("No se puede tomar asistencia. Intentelo de nuevo");
+            }
         }
+
+        //3) Se deberá poder listar las asistencias de una fecha ingresada por el usuario con su {FORMATO }. (Listar Asistencia)
         static void MostrarAsistencia()
         {
             // ingreso fecha

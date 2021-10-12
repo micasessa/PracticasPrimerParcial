@@ -13,6 +13,7 @@ namespace PresentismoPractica.Liberia.Entidades
 
         //Desarrollo constructor
         public Alumno() { }
+        public Alumno(string nombre) : base (nombre) { }
         public Alumno(int registro, string nombre, string apellido) : base(nombre, apellido)
         {
             _registro = registro;
