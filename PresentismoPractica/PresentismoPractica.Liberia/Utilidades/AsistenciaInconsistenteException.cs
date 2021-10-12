@@ -8,5 +8,9 @@ namespace PresentismoPractica.Liberia.Utilidades
 {
     public class AsistenciaInconsistenteException : Exception
     {
+        public AsistenciaInconsistenteException() : base("")
+        {
+
+        }
     }
 }

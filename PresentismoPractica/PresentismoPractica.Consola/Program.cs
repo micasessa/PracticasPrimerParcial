@@ -55,36 +55,39 @@ namespace PresentismoPractica.Consola
             {
                 // Ingreso fecha
                 string fechaAsistencia = Validador.pedirString("Ingrese la fecha:");
+                //creo una nueva lista de asistencia
                 List<Asistencia> listaasistencia1 = new List<Asistencia>();
                 // Listar todos los alumnos (regulares y oyentes)
                 foreach (Alumno al in _presentismo.Alumnos)
-                {
-                    Console.WriteLine(al.ToString());
+                { 
                     //Si el alumno no es regular, mostrar por pantalla “El alumno {FORMATO} es oyente” y no pedir asistencia ni agregar a la lista de asistencia.
                     if (al is AlumnoRegular)
-                    {   //Agrego una asistencia con los datos que ya tengo (fecha pedida al usuario, preceptor, todos los alumnos regulares.
-                        Asistencia asistencia1 = new Asistencia(fechaAsistencia, DateTime.Now, p, al);
-                        // para cada alumno solo preguntar si está presente
+                    {   //Agrego una asistencia con los datos que ya tengo (fecha pedida al usuario, preceptor, todos los alumnos regulares)
+                        Asistencia asistencia1;
+                        //para cada alumno solo preguntar si está presente
                         string alumnoPresente = Validador.pedirString (al.ToString() + "está presente? SI / NO ?").ToUpper();
-
-                        if(alumnoPresente == "SI")
-                        {
-                            asistencia1.EstaPresente = true;
-                            // agrego la lista de asistencia
-                            _presentismo.AgregarAsistencia(listaasistencia1, fechaAsistencia );                            
+                        
+                        if (alumnoPresente == "SI")
+                        {   
+                            asistencia1 = new Asistencia(fechaAsistencia, DateTime.Now, true, p, al);
                             // Error: mostrar el error y que luego muestre el menu nuevamente
                         }
                         else
                         {
-                            asistencia1.EstaPresente = false;
+                            asistencia1 = new Asistencia(fechaAsistencia, DateTime.Now, false, p, al);
                             Console.WriteLine("El alumno no está presente.");
                         }
+                        // agrego la lista de asistencia
+                        listaasistencia1.Add(asistencia1);
                     }
                     else
                     {
-                        Console.WriteLine("El alumno " + al.ToString() + " es oyente." );
+                        Console.WriteLine("El alumno " + al.ToString() + " es oyente." ); //Porque el alumno no es regular. no se le pide asistencia y no se agrega a la lista
                     }
-                }
+                    _presentismo.AgregarAsistencia(listaasistencia1, fechaAsistencia);
+                    Console.WriteLine("Asistencia agregada");
+                    Console.ReadLine();
+                }                               
             }
             catch (AsistenciaExistenteEseDiaException ex)
             {

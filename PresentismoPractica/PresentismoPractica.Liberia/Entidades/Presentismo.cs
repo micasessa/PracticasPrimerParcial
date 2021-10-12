@@ -40,7 +40,17 @@ namespace PresentismoPractica.Liberia.Entidades
         }
 
         private int GetCantidadAlumnosRegulares()
-        { }
+        {
+            int cantAlumnosReg = 0;
+            foreach (Alumno aReg in _alumnos)
+            {
+                if (aReg is AlumnoRegular)
+                {
+                    cantAlumnosReg = cantAlumnosReg + 1;
+                }
+            }
+            return cantAlumnosReg;
+        }
 
         public Preceptor GetPreceptorActivo()
         { }
@@ -49,18 +59,25 @@ namespace PresentismoPractica.Liberia.Entidades
         { }
 
         public void AgregarAsistencia (List<Asistencia> listaAsis, string fechaAsis)
-        {
-            if (fechaAsis.Equals(_fechas))
+        {   //b) En caso que la lista de asistencia ingresada no tenga una cantidad igual a la lista de alumnos regulares registrados, se debe arrojar una AsistenciaInconsistenteException.
+            if (listaAsis.Count() == GetCantidadAlumnosRegulares())
+            {   //c) Solo se puede agregar a la lista(_asistencias) una vez por fecha y cada vez que se ingresen asistencias a la lista(_asistencias)
+                //se debe ingresar un string a la lista de fechas(_fechas). Tip: firma de AgregarAsistencia(List < Asistencia > asistencias, string fecha)
+                //d) En caso que la fecha ya exista en la lista(_fechas) se deberá arrojar una AsistenciaExistenteEseDiaException.
+                if (fechaAsis.Equals(_fechas))
+                {
+                    throw new AsistenciaExistenteEseDiaException();
+                }
+                else
+                {
+                    Asistencia asistencia = new Asistencia(fechaAsis, DateTime.Now);
+                    _asistencias.Add(asistencia);
+                    _fechas.Add(fechaAsis);
+                }
+            } else
             {
-                throw new AsistenciaExistenteEseDiaException();
+                throw new AsistenciaInconsistenteException();
             }
-            else
-            {                
-                Asistencia asistencia = new Asistencia(fechaAsis, DateTime.Now);
-                _asistencias.Add(asistencia);
-                _fechas.Add(fechaAsis);
-            }
-            
         }
         public List<Asistencia> GetAsistenciasPorFecha (string a)
         { }

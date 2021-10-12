@@ -8,5 +8,9 @@ namespace PresentismoPractica.Liberia.Utilidades
 {
     public class AsistenciaExistenteEseDiaException :Exception
     {
+        public AsistenciaExistenteEseDiaException(): base ("Ya se tomó asistencia este dia.")
+        {
+
+        }
     }
 }
