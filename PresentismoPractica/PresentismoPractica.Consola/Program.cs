@@ -69,8 +69,7 @@ namespace PresentismoPractica.Consola
                         
                         if (alumnoPresente == "SI")
                         {   
-                            asistencia1 = new Asistencia(fechaAsistencia, DateTime.Now, true, p, al);
-                            // Error: mostrar el error y que luego muestre el menu nuevamente
+                            asistencia1 = new Asistencia(fechaAsistencia, DateTime.Now, true, p, al);                            
                         }
                         else
                         {
@@ -84,10 +83,11 @@ namespace PresentismoPractica.Consola
                     {
                         Console.WriteLine("El alumno " + al.ToString() + " es oyente." ); //Porque el alumno no es regular. no se le pide asistencia y no se agrega a la lista
                     }
-                    _presentismo.AgregarAsistencia(listaasistencia1, fechaAsistencia);
-                    Console.WriteLine("Asistencia agregada");
-                    Console.ReadLine();
-                }                               
+                    
+                }
+                _presentismo.AgregarAsistencia(listaasistencia1, fechaAsistencia);
+                Console.WriteLine("Asistencia agregada");
+                Console.ReadLine();
             }
             catch (AsistenciaExistenteEseDiaException ex)
             {
