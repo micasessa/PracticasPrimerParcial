@@ -91,11 +91,11 @@ namespace PresentismoPractica.Consola
             }
             catch (AsistenciaExistenteEseDiaException ex)
             {
-                Console.WriteLine("Ya se tomó asistencia este dia.");
+                Console.WriteLine(ex.Message);
             } 
             catch (SinAlumnosRegistradosException ex)
             {
-                Console.WriteLine("El alumno es oyente, no está registrado");
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
@@ -107,7 +107,22 @@ namespace PresentismoPractica.Consola
         static void MostrarAsistencia()
         {
             // ingreso fecha
+            string fechaAsistencia = Validador.pedirString("Ingrese la fecha:");
             // muestro el toString de cada asistencia
+            foreach (Asistencia a2 in _presentismo.GetAsistenciasPorFecha(fechaAsistencia))
+            {
+                if (a2.FechaReferencia == fechaAsistencia)
+                {
+                    Console.WriteLine(_presentismo.ToString()); //Muestro las asistencias de la fecha ingresada
+                } 
+                else
+                {
+                    //En caso que no haya asistencias mostrar “No hay registros para la fecha {FECHAINGRESADA}”.
+                    Console.WriteLine("No hay registros para la fecha " + fechaAsistencia);
+                }
+            }
+            
+            
         }
     }
 }

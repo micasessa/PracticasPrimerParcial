@@ -8,7 +8,7 @@ namespace PresentismoPractica.Liberia.Utilidades
 {
     public class AsistenciaInconsistenteException : Exception
     {
-        public AsistenciaInconsistenteException() : base("")
+        public AsistenciaInconsistenteException() : base("La lista de asistencia ingresada no contiende la misma cantidad a la lista de alumnos regulares registrados")
         {
 
         }

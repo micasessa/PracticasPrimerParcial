@@ -60,7 +60,15 @@ namespace PresentismoPractica.Liberia.Entidades
         }
 
         public Preceptor GetPreceptorActivo()
-        { }
+        {
+            if(_preceptores.Any() == true)
+            {
+                return _preceptores.Last();
+            } else
+            {
+                throw new AsistenciaInconsistenteException();
+            }
+        }
 
         public List<Alumno> GetListaAlumno(string fecha)
         {
@@ -94,8 +102,19 @@ namespace PresentismoPractica.Liberia.Entidades
                 throw new AsistenciaInconsistenteException();
             }
         }
-        public List<Asistencia> GetAsistenciasPorFecha (string a)
-        { }
+        public List<Asistencia> GetAsistenciasPorFecha (string fechaIngresada)
+        {
+            //Tengo que instanciar una nueva lista para guardar asistencias por fecha. 
+            List<Asistencia> asistenciasPorFecha = new List<Asistencia>();
+
+            if (AsistenciaRegistrada(fechaIngresada) == true) 
+            {
+                return asistenciasPorFecha ; //para el caso que exista una lista de asistencia
+            } else
+            {
+                throw new AsistenciaInconsistenteException();
+            }
+        }
 
 
 
