@@ -22,10 +22,9 @@ namespace PresentismoPractica.Liberia.Entidades
         //Des getter
         public int Registro { get => _registro; }
 
-
         internal override string Display()
         { //“NOMBRE (REGISTRO)”
-            return "Nombre " + _nombre + " (" + _registro + ")";
+            return "Nombre " + _nombre + " (" + _registro + ")" ;
         }
 
     }

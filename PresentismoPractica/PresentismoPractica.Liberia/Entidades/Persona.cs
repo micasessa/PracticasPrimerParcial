@@ -24,13 +24,12 @@ namespace PresentismoPractica.Liberia.Entidades
             _apellido = apellido;
         }
         
-        //Falta desarrollo
+        
         public string ToString()
         {
-            return "Nombre: " + _nombre + " - Apellido: " + _apellido;
+            return Display();
         }
-
-        internal abstract string Display()
-        { }
+        internal abstract string Display();
+        
     }
 }

@@ -58,7 +58,7 @@ namespace PresentismoPractica.Consola
                 //creo una nueva lista de asistencia
                 List<Asistencia> listaasistencia1 = new List<Asistencia>();
                 // Listar todos los alumnos (regulares y oyentes)
-                foreach (Alumno al in _presentismo.Alumnos)
+                foreach (Alumno al in _presentismo.GetListaAlumno(fechaAsistencia))
                 { 
                     //Si el alumno no es regular, mostrar por pantalla “El alumno {FORMATO} es oyente” y no pedir asistencia ni agregar a la lista de asistencia.
                     if (al is AlumnoRegular)

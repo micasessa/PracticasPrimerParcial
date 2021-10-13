@@ -16,7 +16,7 @@ namespace PresentismoPractica.Liberia.Entidades
         
         //Des propiedades
         public List<Preceptor> Preceptores { get => _preceptores; }
-        public List<Alumno> Alumnos { get => _alumnos; }
+       
         public List<Asistencia> Asistencias { get => _asistencias; }
         public List<string> Fechas { get => _fechas; }
 
@@ -37,6 +37,13 @@ namespace PresentismoPractica.Liberia.Entidades
         //Metodos enunciado (Vacios)
         private bool AsistenciaRegistrada (string fecha)
         { 
+            if (_fechas.Contains(fecha) == true) 
+            {
+                return true; //ya se registro una asistencia con la fecha ingresada por el usuario
+            } else
+            {
+                return false; //todavia no se registro una asistencia
+            }
         }
 
         private int GetCantidadAlumnosRegulares()
@@ -55,8 +62,16 @@ namespace PresentismoPractica.Liberia.Entidades
         public Preceptor GetPreceptorActivo()
         { }
 
-        public List<Alumno> GetListaAlumno(string a)
-        { }
+        public List<Alumno> GetListaAlumno(string fecha)
+        {
+            if(_alumnos.Count() <= 0)
+            {
+                throw new SinAlumnosRegistradosException();
+            } else
+            {
+                return _alumnos;
+            }            
+        }
 
         public void AgregarAsistencia (List<Asistencia> listaAsis, string fechaAsis)
         {   //b) En caso que la lista de asistencia ingresada no tenga una cantidad igual a la lista de alumnos regulares registrados, se debe arrojar una AsistenciaInconsistenteException.
@@ -64,9 +79,9 @@ namespace PresentismoPractica.Liberia.Entidades
             {   //c) Solo se puede agregar a la lista(_asistencias) una vez por fecha y cada vez que se ingresen asistencias a la lista(_asistencias)
                 //se debe ingresar un string a la lista de fechas(_fechas). Tip: firma de AgregarAsistencia(List < Asistencia > asistencias, string fecha)
                 //d) En caso que la fecha ya exista en la lista(_fechas) se deberá arrojar una AsistenciaExistenteEseDiaException.
-                if (fechaAsis.Equals(_fechas))
+                if (AsistenciaRegistrada (fechaAsis))
                 {
-                    throw new AsistenciaExistenteEseDiaException();
+                    throw new AsistenciaExistenteEseDiaException(); //porque no puede pasar que se registre una asistencia en una fecha ya hecha.
                 }
                 else
                 {
