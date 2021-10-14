@@ -106,23 +106,31 @@ namespace PresentismoPractica.Consola
         //3) Se deberá poder listar las asistencias de una fecha ingresada por el usuario con su {FORMATO }. (Listar Asistencia)
         static void MostrarAsistencia()
         {
-            // ingreso fecha
-            string fechaAsistencia = Validador.pedirString("Ingrese la fecha:");
-            // muestro el toString de cada asistencia
-            foreach (Asistencia a2 in _presentismo.GetAsistenciasPorFecha(fechaAsistencia))
+            try
             {
-                if (a2.FechaReferencia == fechaAsistencia)
+                // ingreso fecha
+                string fechaAsistencia = Validador.pedirString("Ingrese la fecha:");
+                List<Asistencia> asistPorFecha = _presentismo.GetAsistenciasPorFecha(fechaAsistencia);
+                // muestro el toString de cada asistencia
+                foreach (Asistencia a2 in _presentismo.GetAsistenciasPorFecha(fechaAsistencia))
                 {
-                    Console.WriteLine(_presentismo.ToString()); //Muestro las asistencias de la fecha ingresada
-                } 
-                else
-                {
-                    //En caso que no haya asistencias mostrar “No hay registros para la fecha {FECHAINGRESADA}”.
-                    Console.WriteLine("No hay registros para la fecha " + fechaAsistencia);
+                    if (a2.FechaReferencia == fechaAsistencia)
+                    {
+                        Console.WriteLine(_presentismo.ToString()); //Muestro las asistencias de la fecha ingresada
+                    }
+                    else
+                    {
+                        //En caso que no haya asistencias mostrar “No hay registros para la fecha {FECHAINGRESADA}”.
+                        Console.WriteLine("No hay registros para la fecha " + fechaAsistencia);
+                    }
                 }
             }
             
-            
+            catch (Exception ex)
+            {
+                Console.WriteLine("No existe una asistencia por la fecha ingresada");
+            }
+
         }
     }
 }

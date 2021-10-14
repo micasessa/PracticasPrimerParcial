@@ -128,7 +128,7 @@ namespace PresentismoPractica.Liberia.Entidades
 
             } else
             {
-                Console.WriteLine("No existe una asistencia por la fecha ingresada");
+                throw new Exception ("No existe una asistencia por la fecha ingresada");
             }
         }
     
