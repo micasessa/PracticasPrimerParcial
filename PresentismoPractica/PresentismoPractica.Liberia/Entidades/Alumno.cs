@@ -24,7 +24,7 @@ namespace PresentismoPractica.Liberia.Entidades
 
         internal override string Display()
         { //“NOMBRE (REGISTRO)”
-            return "Nombre " + _nombre + " (" + _registro + ")" ;
+            return  _nombre + " (" + _registro + ")" ;
         }
 
     }

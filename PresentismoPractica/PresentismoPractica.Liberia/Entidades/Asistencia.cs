@@ -45,11 +45,29 @@ namespace PresentismoPractica.Liberia.Entidades
         public DateTime FechaHoraReal { get => _fechaHoraReal; }
         public Preceptor Preceptor { get => _preceptor; }
         public Alumno Alumno { get => _alumno; }
-        public bool EstaPresente { get => _estaPresente; set { _estaPresente = value; } }
+        
+
+        //Des metodo
+        public string EstaPresente
+        {
+            get
+            {
+                if (_estaPresente == true)
+                {
+                    return "SI";
+                }
+                else
+                {
+                    return "NO";
+                }
+            }
+        }
+
+
 
         public string ToString()
         { //"FECHAREFERENCIA {ALUMNO FORMATEADO} está presente {SI o NO} por { PRECEPTOR FORMATEADO} registrado el { FECHAHORAREAL}"
-            return _fechaReferencia + "{ " + _alumno + " } - Asistió:  " + _estaPresente + " por " + _preceptor + " - Registrado el " + _fechaHoraReal;
+            return _fechaReferencia + "{ " + _alumno.Display() + " } - Asistió:  " + EstaPresente + " por " + _preceptor.Display() + " - Registrado el " + _fechaHoraReal;
         }
 
     }

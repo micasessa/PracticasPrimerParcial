@@ -110,13 +110,14 @@ namespace PresentismoPractica.Consola
             {
                 // ingreso fecha
                 string fechaAsistencia = Validador.pedirString("Ingrese la fecha:");
-                List<Asistencia> asistPorFecha = _presentismo.GetAsistenciasPorFecha(fechaAsistencia);
                 // muestro el toString de cada asistencia
-                foreach (Asistencia a2 in _presentismo.GetAsistenciasPorFecha(fechaAsistencia))
+                List<Asistencia> asistPorFecha = _presentismo.GetAsistenciasPorFecha(fechaAsistencia);
+                Console.WriteLine("La asistencia para la fecha " + fechaAsistencia + " es:");
+                foreach (Asistencia a2 in asistPorFecha)
                 {
                     if (a2.FechaReferencia == fechaAsistencia)
                     {
-                        Console.WriteLine(_presentismo.ToString()); //Muestro las asistencias de la fecha ingresada
+                        Console.WriteLine(a2.ToString()); //Muestro las asistencias de la fecha ingresada
                     }
                     else
                     {
