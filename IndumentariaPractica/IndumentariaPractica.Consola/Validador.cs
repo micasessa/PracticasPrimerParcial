@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IndumentariaPractica.Libreria.Entidades;
+using IndumentariaPractica.Libreria.Utilidades;
 
 namespace Validaciones
 {
-    public class Validador
+    public static class Validador
     {
         public static int pedirMenu(string mensaje)
         {
