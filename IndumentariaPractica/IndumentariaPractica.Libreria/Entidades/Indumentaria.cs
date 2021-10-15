@@ -26,6 +26,13 @@ namespace IndumentariaPractica.Libreria.Entidades
             Precio = precio;
         }
 
+        public Indumentaria (TipoIndumentaria tipo, string talle, double precio)
+        {
+            Talle = talle;
+            Precio = precio;
+            Tipo = tipo;
+        }
+
         //Metodo
         public string ToString()
         {

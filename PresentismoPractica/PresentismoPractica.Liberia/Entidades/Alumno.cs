@@ -18,6 +18,11 @@ namespace PresentismoPractica.Liberia.Entidades
         {
             _registro = registro;
         }
+        public Alumno(int registro, string nombre) : base(nombre)
+        {
+            _registro = registro;
+        }
+
 
         //Des getter
         public int Registro { get => _registro; }

@@ -67,7 +67,7 @@ namespace PresentismoPractica.Liberia.Entidades
 
         public string ToString()
         { //"FECHAREFERENCIA {ALUMNO FORMATEADO} está presente {SI o NO} por { PRECEPTOR FORMATEADO} registrado el { FECHAHORAREAL}"
-            return _fechaReferencia + "{ " + _alumno.Display() + " } - Asistió:  " + EstaPresente + " por " + _preceptor.Display() + " - Registrado el " + _fechaHoraReal;
+            return _fechaReferencia + "{ " + _alumno.ToString() + " } - Asistió:  " + EstaPresente + " por " + _preceptor.Display() + " - Registrado el " + _fechaHoraReal;
         }
 
     }

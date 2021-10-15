@@ -75,8 +75,23 @@ namespace IndumentariaPractica.Consola
         //- Agregar Indumentaria (por defecto cada indumentaria ingresa con 3 de stock)
         private static void AgregarIndumentaria()
         {
-            throw new NotImplementedException();
+            //inicializo las variables:
+            string tipo;
+            int codigo;
+            string talle;
+            double precio;
+
+            //pido al usuario que agregue: (el codigo va a ser asignado automaticamente x ultimoCodigo)
+            tipo = Validador.pedirString("Ingrese el tipo de indumentaria.CASUAL/FORMAL/DEPORTIV ").ToUpper();
+            talle = Validador.pedirString("Ingrese el talle");
+            precio = Validador.pedirDouble("Ingrese el precio");
+
+            //Agrego variables a Indumentaria
+            Indumentaria ind1 = new Indumentaria( talle, precio);
+
+        
         }
+    }
 
         private static void ModificarIndumentaria()
         {

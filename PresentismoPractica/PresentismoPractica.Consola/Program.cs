@@ -126,6 +126,10 @@ namespace PresentismoPractica.Consola
                     }
                 }
             }
+            catch (SinAlumnosRegistradosException ex)
+            {
+                Console.WriteLine("No hay alumnos registrados");
+            }
             
             catch (Exception ex)
             {
