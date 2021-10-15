@@ -19,7 +19,26 @@ namespace IndumentariaPractica.Libreria.Entidades
             Material = material;
             TieneBolsillos = tieneBolsillos;
         }
+
+        public string Bolsillo
+        {
+            get
+            {
+                if (TieneBolsillos == true)
+                {
+                    return "SI";
+                }
+                else
+                {
+                    return "NO";
+                }
+            }
+        }
+
         public override string GetDetalle()
-        { }
+        {
+            return "Cod: " + Codigo + " - Tipo: " + Tipo + " - Stock: " + Stock + " - Talle: " + Talle + " - Precio: " + Precio + " - Bolsillo: " + Bolsillo
+                + " - Material: " + Material;
+        }
     }
 }

@@ -56,11 +56,23 @@ namespace IndumentariaPractica.Consola
 
         }
 
+        //Listar Indumentarias (GetDetalle())
         private static void ListarIndumentaria()
         {
-            throw new NotImplementedException();
+            try
+            {
+                foreach (Indumentaria i in _tiendaRopa.Listar())
+                {
+                    Console.WriteLine(i.GetDetalle());
+                }
+                Console.ReadLine();
+            } catch (Exception ex) 
+            {
+                Console.WriteLine("No hay inventario");
+            }
         }
 
+        //- Agregar Indumentaria (por defecto cada indumentaria ingresa con 3 de stock)
         private static void AgregarIndumentaria()
         {
             throw new NotImplementedException();
@@ -76,16 +88,23 @@ namespace IndumentariaPractica.Consola
             throw new NotImplementedException();
         }
 
+        //- Listar ordenes (con el formato "codigo) Apellido, Nombre Cliente, cantidad prendas, $ total pedido"
         private static void ListarOrdenes()
         {
             throw new NotImplementedException();
         }
+
+        //- Ingresar Orden (debe restar stock de la prenda seleccionada)
+        //- Cuando inicia la orden el estado es inciada
+        //Cuando el cliente deja de ingresar items el estado es prosada
 
         private static void IngresarOrdenes()
         {
             throw new NotImplementedException();
         }
 
+        //- Devolver Orden (debe volver al stock de la prenda)
+        //- Cuando el cliente Devuelve el estado pasa a devuelto
         private static void DevolverOrdenes()
         {
             throw new NotImplementedException();

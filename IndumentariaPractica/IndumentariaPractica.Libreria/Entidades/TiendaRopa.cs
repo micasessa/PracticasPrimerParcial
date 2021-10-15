@@ -11,7 +11,7 @@ namespace IndumentariaPractica.Libreria.Entidades
     {
         private List<Indumentaria> _Inventario;
         private List<Venta> _Ventas;
-        private int _ultimoCodigo;
+        private int _ultimoCodigo; //* Cada codigo dentro de la aplicacion lo maneja lo asigna TiendaRopa (mantiene un contador interno)
 
         //Propiedades getter:
         public List<Indumentaria> Inventario { get => _Inventario; }
@@ -44,7 +44,17 @@ namespace IndumentariaPractica.Libreria.Entidades
         { }
 
         public List<Indumentaria> Listar()
-        { }
+        {
+            if (_Inventario.Any() == true)
+            {
+                return _Inventario;
+            }
+            else
+            {
+                throw new Exception("No hay inventario");
+            }           
+            
+        }
 
         public List<Orden> ListarOrden()
         { }

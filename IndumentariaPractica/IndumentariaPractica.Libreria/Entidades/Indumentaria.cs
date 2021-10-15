@@ -10,7 +10,7 @@ namespace IndumentariaPractica.Libreria.Entidades
     public abstract class Indumentaria
     {
         public TipoIndumentaria Tipo;
-        public int Codigo;
+        public int Codigo; 
         public int Stock;
         public string Talle;
         public double Precio;
@@ -18,8 +18,7 @@ namespace IndumentariaPractica.Libreria.Entidades
         //no declaro las propiedades porque las variables son publicas
         public Indumentaria() { }
         
-
-        public Indumentaria (int codigo, int stock, string talle, double precio)
+        public Indumentaria (int codigo, int stock = 3 , string talle, double precio)
         {
             Codigo = codigo;
             Stock = stock;
@@ -29,12 +28,14 @@ namespace IndumentariaPractica.Libreria.Entidades
 
         //Metodo
         public string ToString()
-        { }
+        {
+            return GetDetalle();
+        }
 
         public bool Equals()
         { }
 
-        public abstract string GetDetalle()
-        { }
+        public abstract string GetDetalle();
+        
     }
 }

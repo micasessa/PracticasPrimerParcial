@@ -21,7 +21,25 @@ namespace IndumentariaPractica.Libreria.Entidades
             TipoManga = tipoManga;
         }
 
+        public string Estampado
+        {
+            get
+            {
+                if (TieneEstampado == true)
+                {
+                    return "SI";
+                }
+                else
+                {
+                    return "NO";
+                }
+            }
+        }
+
         public override string GetDetalle()
-        { }
+        {
+            return "Cod: " + Codigo + " - Tipo: " + Tipo + " - Stock: " + Stock + " - Talle: " + Talle + " - Precio: " + Precio + " - Estampado: " + Estampado
+                + " - Tipo Manga: "+ TipoManga;
+        }
     }
 }
